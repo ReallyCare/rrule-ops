@@ -1,0 +1,29 @@
+{
+  "name": "rrule-ops",
+  "version": "0.0.1",
+  "description": "RRULE operations, such as intersection",
+  "main": "rrule-ops.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "RRULE",
+    "iCal",
+    "iCalendar",
+    "2445",
+    "RFC2445",
+    "Recurrence"
+  ],
+  "author": "Mark Chapman",
+  "license": "MIT",
+  "dependencies": {
+    "rrule-alt": "^2.2.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.0.10",
+    "@types/mocha": "^2.2.44",
+    "@types/node": "^8.5.1",
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1"
+  }
+}
