@@ -11,14 +11,18 @@ exports.intersection = function (rule1, rule2, daysToCheck = 365) {
     let retVal;
     function arrayIntersection(arr1, arr2) {
         let retVal;
-        if (Array.isArray(arr1) && Array.isArray(arr2) && arr1.length > 0 && arr2.length > 0) {
-            retVal = arr1.reduce((r, a) => arr2.includes(a) && r.concat(a) || r, []);
+        let definitelyArr1 = (!Array.isArray(arr1)) ? (arr1 ? [arr1] : []) : arr1;
+        let definitelyArr2 = (!Array.isArray(arr2)) ? (arr2 ? [arr2] : []) : arr2;
+        if (definitelyArr1.length > 0 && definitelyArr2.length > 0) {
+            retVal = definitelyArr1.reduce((r, a) => definitelyArr2.includes(a) && r.concat(a) || r, []);
         }
         return retVal;
     }
     function checkNoArrayIntersection(attribute) {
-        let intersection = arrayIntersection(rule1.options[attribute], rule2.options[attribute]);
-        return !!intersection && intersection.length === 0;
+        let r1Options = rule1.options;
+        let r2Options = rule2.options;
+        let intersection = arrayIntersection(r1Options[attribute], r2Options[attribute]);
+        return !!intersection && (intersection.length === 0);
     }
     if (checkNoArrayIntersection('byhour') ||
         checkNoArrayIntersection('byweekday') ||
