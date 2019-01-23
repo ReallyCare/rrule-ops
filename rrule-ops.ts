@@ -15,7 +15,7 @@ export const intersection = function(rule1: RRule, rule2: RRule, daysToCheck=365
     let definitelyArr1: any[] = (!Array.isArray(arr1)) ? (arr1 ? [arr1] : []) : arr1;
     let definitelyArr2: any[] = (!Array.isArray(arr2)) ? (arr2 ? [arr2] : []) : arr2;
     if (definitelyArr1.length > 0 && definitelyArr2.length > 0) {
-      retVal = definitelyArr1.reduce((r: any, a: any) => definitelyArr2.includes(a) && r.concat(a) || r, [])
+      retVal = definitelyArr1.reduce((r: any, a: any) => (definitelyArr2.indexOf(a) !== -1) && r.concat(a) || r, [])
     }
     return retVal;
   }
